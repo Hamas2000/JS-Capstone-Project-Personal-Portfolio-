@@ -1,4 +1,3 @@
-//humberger
 document.addEventListener("DOMContentLoaded", () => {
     const hamburger = document.querySelector(".hamburger");
     const navMenu = document.querySelector(".nav-menu");
@@ -34,7 +33,7 @@ function loadCertificates() {
 
     // title
     const certificationTitle = document.createElement('h2');
-    certificationTitle.innerText = 'Certification of Complition';
+    certificationTitle.innerText = 'Certification of Completion';
     certificateContent.insertAdjacentElement('beforebegin', certificationTitle);
 
     certificatesData.forEach(cert => {
@@ -59,7 +58,6 @@ function loadCertificates() {
 loadCertificates();
 
 document.addEventListener('DOMContentLoaded', function () {
-
     const carouselContainer = document.getElementById('carousel-container');
     const skillHead = document.createElement('h1');
     skillHead.id = 'skill-head';
@@ -222,10 +220,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const rotateValue = (percent / 100) * 360;
 
         if (percent <= 50) {
-            circle.querySelector('::before').style.transform = rotate(${ rotateValue }deg);
+            circle.querySelector('::before').style.transform = `rotate(${rotateValue}deg)`;
         } else {
-            circle.querySelector('::before').style.transform = rotate(180deg);
-            circle.querySelector('::after').style.transform = rotate(${ rotateValue - 180}deg);
-}
+            circle.querySelector('::before').style.transform = 'rotate(180deg)';
+            circle.querySelector('::after').style.transform = `rotate(${rotateValue - 180}deg)`;
+        }
     });
-  });
+});
