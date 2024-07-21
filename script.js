@@ -107,12 +107,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   window.nextSlide = function nextSlide() {
-    currentIndex = currentIndex + 1;
+    currentIndex += 1;
     showSlide(currentIndex);
   };
 
   window.prevSlide = function prevSlide() {
-    currentIndex = currentIndex - 1;
+    currentIndex -= 1;
     showSlide(currentIndex);
   };
 
