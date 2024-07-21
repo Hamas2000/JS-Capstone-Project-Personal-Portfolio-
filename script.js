@@ -1,17 +1,17 @@
 // Hamburger Menu
-document.addEventListener("DOMContentLoaded", () => {
-  const hamburger = document.querySelector(".hamburger");
-  const navMenu = document.querySelector(".nav-menu");
-  const navLink = document.querySelectorAll(".nav-link");
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav-menu');
+  const navLink = document.querySelectorAll('.nav-link');
 
-  hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    navMenu.classList.toggle("active");
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
   });
 
-  navLink.forEach(n => n.addEventListener("click", () => {
-    hamburger.classList.remove("active");
-    navMenu.classList.remove("active");
+  navLink.forEach((n) => n.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('active');
   }));
 });
 
@@ -19,12 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
 const certificatesData = [
   {
     title: 'Responsive Web Design',
-    image: 'freecodcamp-certificate.png'
+    image: 'freecodcamp-certificate.png',
   },
   {
     title: 'JavaScript',
-    image: 'freecodcamp-certificate.png'
-  }
+    image: 'freecodcamp-certificate.png',
+  },
 ];
 
 const certificateContent = document.getElementById('certificate-content');
@@ -37,7 +37,7 @@ function loadCertificates() {
   certificationTitle.innerText = 'Certification of Completion';
   certificateContent.insertAdjacentElement('beforebegin', certificationTitle);
 
-  certificatesData.forEach(cert => {
+  certificatesData.forEach((cert) => {
     const certificateDiv = document.createElement('div');
     certificateDiv.classList.add('certificate');
 
@@ -58,6 +58,7 @@ function loadCertificates() {
 
 loadCertificates();
 
+// Carousel
 document.addEventListener('DOMContentLoaded', () => {
   const carouselContainer = document.getElementById('carousel-container');
   const skillHead = document.createElement('h1');
@@ -68,50 +69,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // Display the certificate section by default
   document.getElementById('certificate-content').style.display = 'block';
 
-  // Carousel data
   const carouselData = [
     {
       title: 'Survey Form',
       description: '',
       image: 'new.jpeg',
       technologies: ['HTML', 'CSS', 'JavaScript'],
-      link: 'https://example.com/project4'
+      link: 'https://example.com/project4',
     },
-    {
-      title: 'Roman Numeral',
-      description: '',
-      image: 'profile.png',
-      technologies: ['HTML', 'CSS', 'JavaScript'],
-      link: 'https://example.com/project4'
-    },
-    {
-      title: 'Personal Portfolio',
-      description: '',
-      image: 'new.jpeg',
-      technologies: ['HTML', 'CSS', 'JavaScript'],
-      link: 'https://example.com/project4'
-    },
-    {
-      title: 'Palindrome Checker',
-      description: '',
-      image: 'profile.png',
-      technologies: ['HTML', 'CSS', 'JavaScript'],
-      link: 'https://example.com/project4'
-    },
-    {
-      title: 'PPP Project',
-      description: '',
-      image: 'new.jpeg',
-      technologies: ['HTML', 'CSS', 'JavaScript'],
-      link: 'https://example.com/project4'
-    },
-    {
-      title: 'Product Landing Page',
-      description: '',
-      image: 'profile.png',
-      technologies: ['HTML', 'CSS', 'JavaScript'],
-      link: 'https://example.com/project4'
-    }
+    // ...
   ];
 
   const carouselImage = document.getElementById('carousel-image');
@@ -133,38 +99,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Clear previous technologies
     carouselTech.innerHTML = '';
-    item.technologies.forEach(tech => {
+    item.technologies.forEach((tech) => {
       const li = document.createElement('li');
       li.innerText = tech;
       carouselTech.appendChild(li);
     });
   }
 
-  window.nextSlide = () => {
+  window.nextSlide = function nextSlide() {
     currentIndex++;
     showSlide(currentIndex);
-  }
+  };
 
-  window.prevSlide = () => {
+  window.prevSlide = function prevSlide() {
     currentIndex--;
     showSlide(currentIndex);
-  }
+  };
 
   // Initial display
   showSlide(currentIndex);
 });
 
-// Three more images
-document.addEventListener("DOMContentLoaded", () => {
+// Images
+document.addEventListener('DOMContentLoaded', () => {
   const images = [
     'new.jpeg',
     'new.jpeg',
-    'new.jpeg'
+    'new.jpeg',
   ];
 
   const imageContainer = document.getElementById('image-container');
 
-  images.forEach(imageSrc => {
+  images.forEach((imageSrc) => {
     const img = document.createElement('img');
     img.src = imageSrc;
     img.alt = 'Dynamic Image';
@@ -180,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
     hoverContent.appendChild(hoverTitle);
 
     const hoverList = document.createElement('ul');
-    ['Item 1', 'Item 2', 'Item 3'].forEach(text => {
+    ['Item 1', 'Item 2', 'Item 3'].forEach((text) => {
       const li = document.createElement('li');
       li.innerText = text;
       hoverList.appendChild(li);
@@ -196,27 +162,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Text changing (if used)
-function changeText() {
-  const colorSpan = document.getElementById('color');
-  let currentText = 'Web Developer';
-
-  setInterval(() => {
-    colorSpan.style.opacity = 0;
-
-    setTimeout(() => {
-      currentText = currentText === 'Web Developer' ? 'Freelancer' : 'Web Developer';
-      colorSpan.innerText = currentText;
-      colorSpan.style.opacity = 1;
-    }, 1000); // Match this with the CSS transition duration for opacity
-  }, 5000); // Interval for text change
-}
-
 // Circles
 document.addEventListener('DOMContentLoaded', () => {
   const circles = document.querySelectorAll('.circle');
 
-  circles.forEach(circle => {
+  circles.forEach((circle) => {
     const percent = circle.getAttribute('data-percent');
     const rotateValue = (percent / 100) * 360;
 
