@@ -222,10 +222,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const rotateValue = (percent / 100) * 360;
 
         if (percent <= 50) {
-            circle.querySelector('::before').style.transform = rotate(${ rotateValue }deg);
+            circle.querySelector('::before').style.transform = `rotate(${rotateValue}deg)`;
         } else {
-            circle.querySelector('::before').style.transform = rotate(180deg);
-            circle.querySelector('::after').style.transform = rotate(${ rotateValue - 180}deg);
-}
+            circle.querySelector('::before').style.transform = 'rotate(180deg)';
+            circle.querySelector('::after').style.transform = `rotate(${rotateValue - 180}deg)`;
+        }
     });
-  });
+});
