@@ -8,7 +8,7 @@
 
 body {
   font-family: cursive;
-  background-color: #052B3C;
+  background-color: #052b3c;
   color: #fff;
 }
 
@@ -21,7 +21,7 @@ a {
 }
 
 .header {
-  background-color: #040E46;
+  background-color: #040e46;
 }
 
 .navbar {
@@ -80,7 +80,7 @@ a {
   left: 0;
   width: 0;
   height: 0;
-  border-top: 100px solid #46E9FF;
+  border-top: 100px solid #46e9ff;
   border-right: 100px solid transparent;
 }
 
@@ -91,7 +91,7 @@ a {
   right: 0;
   width: 0;
   height: 0;
-  border-bottom: 100px solid #46E9FF;
+  border-bottom: 100px solid #46e9ff;
   border-left: 100px solid transparent;
 }
 
@@ -122,7 +122,7 @@ a {
 
 .pro {
   text-align: left;
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 h5 {
@@ -165,7 +165,7 @@ h5 {
   text-decoration: none;
   width: 40px;
   height: 40px;
-  border: 2px solid #31DBF2;
+  border: 2px solid #31dbf2;
   border-radius: 50%;
   background-color: transparent;
   transition: all 0.3s ease;
@@ -173,7 +173,7 @@ h5 {
 
 .fa-brands,
 .fa-solid {
-  color: #31DBF2;
+  color: #31dbf2;
 }
 
 .social-media a:hover {
@@ -181,7 +181,7 @@ h5 {
 }
 
 #CV {
-  background: #31DBF2;
+  background: #31dbf2;
   color: #fff;
   width: 180px;
   font-weight: 700;
@@ -197,7 +197,7 @@ h5 {
   box-shadow: none;
 }
 
-@media(min-width: 430px) {
+@media (min-width: 430px) {
   #home {
     flex-direction: row;
     justify-content: space-around;
@@ -248,19 +248,17 @@ h5 {
     font-size: 1.6rem;
     font-weight: 400;
     color: #475569;
-    background-color: #040E46;
-    border-radius: 0px 40px 40px 0px;
+    background-color: #040e46;
+    border-radius: 0 40px 40px 0;
     width: 200px;
     height: 30px;
-    border-left: 2px solid #46E9FF;
+    border-left: 2px solid #46e9ff;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #ffffff;
+    color: #fff;
     padding: 30px 20px;
     text-decoration: none;
-    font-size: 16px;
-    background-color: #040E46;
     margin-top: 0;
     border-radius: 0px 40px 40px 0px;
     width: 200px;
