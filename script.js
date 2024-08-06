@@ -1,180 +1,215 @@
-// Hamburger Menu
 document.addEventListener('DOMContentLoaded', () => {
+  // Hamburger Menu
   const hamburger = document.querySelector('.hamburger');
   const navMenu = document.querySelector('.nav-menu');
   const navLink = document.querySelectorAll('.nav-link');
 
   hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
   });
 
   navLink.forEach((n) => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
   }));
-});
 
-// Certificates
-const certificatesData = [
-  {
-    title: 'Responsive Web Design',
-    image: 'freecodcamp-certificate.png',
-  },
-  {
-    title: 'JavaScript',
-    image: 'freecodcamp-certificate.png',
-  },
-];
-
-const certificateContent = document.getElementById('certificate-content');
-
-function loadCertificates() {
-  certificateContent.innerHTML = '';
-
-  // Title
-  const certificationTitle = document.createElement('h2');
-  certificationTitle.innerText = 'Certification of Completion';
-  certificateContent.insertAdjacentElement('beforebegin', certificationTitle);
-
-  certificatesData.forEach((cert) => {
-    const certificateDiv = document.createElement('div');
-    certificateDiv.classList.add('certificate');
-
-    const titleDiv = document.createElement('div');
-    titleDiv.classList.add('title');
-    titleDiv.innerText = cert.title;
-
-    const img = document.createElement('img');
-    img.src = cert.image;
-    img.alt = cert.title;
-    img.classList.add('certificate-image');
-
-    certificateDiv.appendChild(titleDiv);
-    certificateDiv.appendChild(img);
-    certificateContent.appendChild(certificateDiv);
-  });
-}
-
-loadCertificates();
-
-// Carousel
-document.addEventListener('DOMContentLoaded', () => {
-  const carouselContainer = document.getElementById('carousel-container');
-  const skillHead = document.createElement('h1');
-  skillHead.id = 'skill-head';
-  skillHead.innerHTML = 'Our <span id="color">Projects</span>';
-  carouselContainer.insertAdjacentElement('beforebegin', skillHead);
-
-  // Display the certificate section by default
-  document.getElementById('certificate-content').style.display = 'block';
-
-  const carouselData = [
-    {
-      title: 'Survey Form',
-      description: '',
-      image: 'new.jpeg',
-      technologies: ['HTML', 'CSS', 'JavaScript'],
-      link: 'https://example.com/project4',
-    },
-    // ...
+  // Certificates
+  const certificatesData = [
+      {
+          title: 'Responsive Web Design',
+          image: 'assets/freecodcamp-certificate.png',
+      },
+      {
+          title: 'JavaScript',
+          image: 'assets/freecodcamp-certificate.png',
+      },
+      {
+          title: 'JavaScript',
+          image: 'assets/freecodcamp-certificate.png',
+      }
   ];
 
-  const carouselImage = document.getElementById('carousel-image');
-  const carouselTitle = document.getElementById('carousel-title');
-  const carouselDescription = document.getElementById('carousel-description');
-  const carouselTech = document.getElementById('carousel-tech');
+  const certificateContent = document.getElementById('certificate-content');
+
+  function loadCertificates() {
+      certificateContent.innerHTML = '';
+
+      // Title
+      const certificationTitle = document.createElement('h2');
+      certificationTitle.innerText = 'Certification of Completion';
+      certificateContent.insertAdjacentElement('beforebegin', certificationTitle);
+
+      certificatesData.forEach((cert) => {
+          const certificateDiv = document.createElement('div');
+          certificateDiv.classList.add('certificate');
+
+          const titleDiv = document.createElement('div');
+          titleDiv.classList.add('title');
+          titleDiv.innerText = cert.title;
+
+          const img = document.createElement('img');
+          img.src = cert.image;
+          img.alt = cert.title;
+          img.classList.add('certificate-image');
+
+          certificateDiv.appendChild(titleDiv);
+          certificateDiv.appendChild(img);
+          certificateContent.appendChild(certificateDiv);
+      });
+  }
+
+  loadCertificates();
+
+  // Carousel and Popup Menu
+  const carousel = document.querySelector('.carousel');
+  const prevButton = document.querySelector('.prev-button');
+  const nextButton = document.querySelector('.next-button');
+  const popupMenu = document.querySelector('#popup-menu');
+  const closeBtn = document.querySelector('#close-btn');
+
+  const projects = [
+      { 
+          src: 'assets/pro-2.png', 
+          title: 'Project 1', 
+          description: 'Description for Project 1', 
+          technologies: ['HTML', 'CSS', 'JS'], 
+          sourceLink: 'https://source1.com', 
+          liveLink: 'https://live1.com' 
+      },
+      { 
+        src: 'assets/pro-2.png', 
+        title: 'Project 2', 
+        description: 'Description for Project 2', 
+        technologies: ['HTML', 'CSS', 'JS'], 
+        sourceLink: 'https://source2.com', 
+        liveLink: 'https://live2.com' 
+    },
+    { 
+      src: 'assets/pro-2.png', 
+      title: 'Project 3', 
+      description: 'Description for Project 3', 
+      technologies: ['HTML', 'CSS', 'JS'], 
+      sourceLink: 'https://source3.com', 
+      liveLink: 'https://live3.com' 
+  },
+  { 
+    src: 'assets/project4.png', 
+    title: 'Project 4', 
+    description: 'Description for Project 4', 
+    technologies: ['HTML', 'CSS', 'JS'], 
+    sourceLink: 'https://source4.com', 
+    liveLink: 'https://live4.com' 
+},
+{ 
+  src: 'assets/project5.png', 
+  title: 'Project 5', 
+  description: 'Description for Project 5', 
+  technologies: ['HTML', 'CSS', 'JS'], 
+  sourceLink: 'https://source5.com', 
+  liveLink: 'https://live5.com' 
+},
+{ 
+  src: 'assets/project6.png', 
+  title: 'Project 6', 
+  description: 'Description for Project 6', 
+  technologies: ['HTML', 'CSS', 'JS'], 
+  sourceLink: 'https://source6.com', 
+  liveLink: 'https://live6.com' 
+  },
+  ];
 
   let currentIndex = 0;
 
-  function showSlide(index) {
-    const totalSlides = carouselData.length;
-    if (index >= totalSlides) currentIndex = 0;
-    if (index < 0) currentIndex = totalSlides - 1;
-    const item = carouselData[currentIndex];
-    carouselImage.src = item.image;
-    carouselImage.alt = item.title;
-    carouselTitle.innerText = item.title;
-    carouselDescription.innerText = item.description;
+  const updateCarousel = () => {
+      carousel.innerHTML = '';
+      const project = projects[currentIndex];
+      const item = document.createElement('div');
+      item.classList.add('carousel-item');
 
-    // Clear previous technologies
-    carouselTech.innerHTML = '';
-    item.technologies.forEach((tech) => {
-      const li = document.createElement('li');
-      li.innerText = tech;
-      carouselTech.appendChild(li);
-    });
-  }
+      const imgElement = document.createElement('img');
+      imgElement.src = project.src;
+      imgElement.alt = project.title;
+      item.appendChild(imgElement);
 
-  window.nextSlide = function nextSlide() {
-    currentIndex += 1;
-    showSlide(currentIndex);
+      const hoverContent = document.createElement('div');
+      hoverContent.classList.add('carousel-hover');
+
+      const title = document.createElement('h1');
+      title.textContent = project.title;
+      hoverContent.appendChild(title);
+
+      const learnMoreButton = document.createElement('button');
+      learnMoreButton.classList.add('learn-more');
+      learnMoreButton.textContent = 'Learn More';
+      learnMoreButton.dataset.index = currentIndex;
+      hoverContent.appendChild(learnMoreButton);
+
+      item.appendChild(hoverContent);
+      carousel.appendChild(item);
+
+      learnMoreButton.addEventListener('click', () => {
+          showPopupMenu(currentIndex);
+      });
   };
 
-  window.prevSlide = function prevSlide() {
-    currentIndex -= 1;
-    showSlide(currentIndex);
+  const showPopupMenu = (index) => {
+      const project = projects[index];
+      document.querySelector('#popup-title').textContent = project.title;
+      document.querySelector('#popup-img').src = project.src;
+      document.querySelector('#popup-description').textContent = project.description;
+      document.querySelector('#source-link').href = project.sourceLink;
+      document.querySelector('#live-link').href = project.liveLink;
+
+      const techList = document.querySelector('#popup-tech-list');
+      techList.innerHTML = ''; 
+      project.technologies.forEach(tech => {
+          const listItem = document.createElement('li');
+          listItem.textContent = tech;
+          techList.appendChild(listItem);
+      });
+
+      popupMenu.style.display = 'block';
   };
 
-  // Initial display
-  showSlide(currentIndex);
-});
+  closeBtn.addEventListener('click', () => {
+      popupMenu.style.display = 'none';
+  });
 
-// Images
-document.addEventListener('DOMContentLoaded', () => {
-  const images = [
-    'new.jpeg',
-    'new.jpeg',
-    'new.jpeg',
+  prevButton.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + projects.length) % projects.length;
+      updateCarousel();
+  });
+
+  nextButton.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % projects.length;
+      updateCarousel();
+  });
+
+  updateCarousel();
+
+  // Adding three images below the carousel
+  const additionalImagesContainer = document.querySelector('#additional-images');
+  const additionalImages = [
+      'assets/pro-2.png',
+      'assets/pro-2.png',
+      'assets/pro-2.png'
   ];
 
-  const imageContainer = document.getElementById('image-container');
-
-  images.forEach((imageSrc) => {
-    const img = document.createElement('img');
-    img.src = imageSrc;
-    img.alt = 'Dynamic Image';
-    img.style.width = '350px'; // Optional: Set image width
-    img.style.height = 'auto'; // Optional: Maintain aspect ratio
-
-    // Create hover content container
-    const hoverContent = document.createElement('div');
-    hoverContent.classList.add('hover-content');
-
-    const hoverTitle = document.createElement('h1');
-    hoverTitle.innerText = 'Hovered Title';
-    hoverContent.appendChild(hoverTitle);
-
-    const hoverList = document.createElement('ul');
-    ['Item 1', 'Item 2', 'Item 3'].forEach((text) => {
-      const li = document.createElement('li');
-      li.innerText = text;
-      hoverList.appendChild(li);
-    });
-    hoverContent.appendChild(hoverList);
-
-    const hoverButton = document.createElement('button');
-    hoverButton.innerText = 'Click Me';
-    hoverContent.appendChild(hoverButton);
-
-    img.appendChild(hoverContent);
-    imageContainer.appendChild(img);
+  additionalImages.forEach(src => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = 'Additional Image';
+      img.classList.add('additional-image');
+      additionalImagesContainer.appendChild(img);
   });
 });
 
-// Circles
+
 document.addEventListener('DOMContentLoaded', () => {
   const circles = document.querySelectorAll('.circle');
-
-  circles.forEach((circle) => {
-    const percent = circle.getAttribute('data-percent');
-    const rotateValue = (percent / 100) * 360;
-
-    if (percent <= 50) {
-      circle.querySelector('::before').style.transform = `rotate(${rotateValue}deg)`;
-    } else {
-      circle.querySelector('::before').style.transform = 'rotate(180deg)';
-      circle.querySelector('::after').style.transform = `rotate(${rotateValue - 180}deg)`;
-    }
+  circles.forEach(circle => {
+      const percentage = circle.getAttribute('data-percentage');
+      circle.style.setProperty('--percentage', percentage);
   });
 });
