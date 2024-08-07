@@ -924,10 +924,9 @@ form button:hover {
   }
 
   h2 {
-      margin-left: 130px;
-      font-size: 20px;
+    margin-left: 130px;
+    font-size: 20px;
   }
-  
 
   .certificate {
     max-width: 300px;
