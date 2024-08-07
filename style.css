@@ -197,7 +197,7 @@ h5 {
   box-shadow: none;
 }
 
-@media (min-width: 430px) {
+@media (min-width: 768px) {
   #home {
     flex-direction: row;
     justify-content: space-around;
@@ -229,7 +229,7 @@ h5 {
   }
 }
 
-@media only screen and (max-width: 430px) {
+@media only screen and (max-width: 768px) {
   .nav-menu {
     position: fixed;
     left: -100%;
@@ -247,7 +247,7 @@ h5 {
   .nav-link {
     font-size: 1.6rem;
     font-weight: 400;
-    color: #475569;
+    color: #fff;
     background-color: #040e46;
     border-left: 2px solid #46e9ff;
     display: flex;
@@ -341,7 +341,7 @@ h5 {
   order: 2;
 }
 
-@media (max-width: 430px) {
+@media (max-width: 768px) {
   #about {
     flex-direction: column;
   }
@@ -457,6 +457,7 @@ h2 {
 .progress {
   background-color: #32dbf2;
   height: 10px;
+  width: 80%;
   border-radius: 5px;
 }
 
@@ -873,7 +874,7 @@ form button:hover {
 
   .pro {
     text-align: left;
-    margin-top: 60px;
+    margin-top: 20px;
   }
 
   #pre {
@@ -921,6 +922,12 @@ form button:hover {
     justify-content: center;
     gap: 50px;
   }
+
+  h2 {
+      margin-left: 130px;
+      font-size: 20px;
+  }
+  
 
   .certificate {
     max-width: 300px;
@@ -990,8 +997,8 @@ form button:hover {
   }
 
   .additional-image {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
   }
 
   /* contact */
