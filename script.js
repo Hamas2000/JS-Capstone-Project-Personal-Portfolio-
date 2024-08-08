@@ -121,6 +121,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentIndex = 0;
 
+  const showPopupMenu = (index) => {
+    const project = projects[index];
+    document.querySelector('#popup-title').textContent = project.title;
+    document.querySelector('#popup-img').src = project.src;
+    document.querySelector('#popup-description').textContent = project.description;
+    document.querySelector('#source-link').href = project.sourceLink;
+    document.querySelector('#live-link').href = project.liveLink;
+
+    const techList = document.querySelector('#popup-tech-list');
+    techList.innerHTML = '';
+    project.technologies.forEach((tech) => {
+      const listItem = document.createElement('li');
+      listItem.textContent = tech;
+      techList.appendChild(listItem);
+    });
+
+    popupMenu.style.display = 'block';
+  };
+
   const updateCarousel = () => {
     carousel.innerHTML = '';
     const project = projects[currentIndex];
@@ -151,25 +170,6 @@ document.addEventListener('DOMContentLoaded', () => {
     learnMoreButton.addEventListener('click', () => {
       showPopupMenu(currentIndex);
     });
-  };
-
-  const showPopupMenu = (index) => {
-    const project = projects[index];
-    document.querySelector('#popup-title').textContent = project.title;
-    document.querySelector('#popup-img').src = project.src;
-    document.querySelector('#popup-description').textContent = project.description;
-    document.querySelector('#source-link').href = project.sourceLink;
-    document.querySelector('#live-link').href = project.liveLink;
-
-    const techList = document.querySelector('#popup-tech-list');
-    techList.innerHTML = '';
-    project.technologies.forEach((tech) => {
-      const listItem = document.createElement('li');
-      listItem.textContent = tech;
-      techList.appendChild(listItem);
-    });
-
-    popupMenu.style.display = 'block';
   };
 
   closeBtn.addEventListener('click', () => {
