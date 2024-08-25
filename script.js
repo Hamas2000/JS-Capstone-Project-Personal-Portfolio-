@@ -18,15 +18,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const certificatesData = [
     {
       title: 'Responsive Web Design',
-      image: 'assets/freecodcamp-certificate.png',
+      image: 'imgs/responsive.jpg',
     },
     {
       title: 'JavaScript',
-      image: 'assets/freecodcamp-certificate.png',
+      image: 'imgs/java.jpg',
     },
     {
       title: 'JavaScript',
-      image: 'assets/freecodcamp-certificate.png',
+      image: 'imgs/eng.jpg',
     },
   ];
 
